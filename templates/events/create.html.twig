@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+{% block title %}Create{% endblock %}
+{% block body %}
+<div class="d-flex flex-column justify-content-between align-items-center">
+   <h2 class="my-5">Add Event</h2>
+   <div class="w-75">
+      {{form_start(form)}}
+      {{form_widget(form, {'attr': {'class': 'd-flex flex-wrap justify-content-between'}})}}
+      {{form_end(form)}}
+   </div>
+</div>
+{% endblock %}

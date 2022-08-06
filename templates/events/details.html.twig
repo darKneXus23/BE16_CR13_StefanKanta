@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+{% block title %}Details{% endblock %}
+{% block body %}
+    <a href="/" class="btn btn-secondary btn-sm mx-5 mt-4">List</a>
+    <h4 class="text-center my-3">Details</h4>
+    <div class="card m-3 col-12 border-0">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="{{ asset('images/') ~ event.image }}" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8 row p-0">
+                <div class="col-md-12 p-0">
+                    <h5 class="card-title mx-5">{{event.name}}</h5>
+                </div>
+                <div class="col-md-6">
+                    <div class="card-body">
+                        <p class="card-text">{{event.description}}</p>
+                        <p class="card-text mb-1">Date: {{event.date|date('F j, Y, g:i a')}}</p>
+                        <p class="card-text">Capacity: {{event.capacity}}</p>
+                        <p class="card-text">E-Mail: {{event.email}}</p>
+                        <p class="card-text">Type: {{event.type}}</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card-body">
+                        <p class="card-text">Phone: {{event.phone}}</p>
+                        <p class="card-text">Adress: {{event.address}}</p>
+                        <p class="card-text">ZIP: {{event.zip}}</p>
+                        <p class="card-text">City: {{event.city}}</p>
+                        <a class="card-text my-2" href="{{event.url}}">{{event.url}}</a>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <a href="{{ path('app_edit', {id: event.id}) }}" class="btn btn-warning btn-sm">edit</a>
+                    <a href="{{ path('app_delete', {id: event.id}) }}" class="btn btn-danger btn-sm">delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% block extra %}
+    {% endblock %}
+{% endblock %}

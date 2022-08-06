@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+{% block title %}BE16_CR13_StefanKanta{% endblock %}
+{% block body %}
+<h1 class="m-4">EVENTS:</h1>
+<div class="row mx-5">
+    {% for event in events %}
+        <div class="col-12 col-md-6 col-lg-3 my-2">
+            <div class="card b-0 shadow">
+                <img src="{{ asset('images/') ~ event.image }}" class="card-img-top" alt="...">
+                <div class="card-body p-3">
+                    <h5 class="card-title mb-1">{{event.name}}</h5>
+                    <p class="card-text mb-1">{{event.description}}</p>
+                    <hr>
+                    <p class="card-text mb-1">Date: {{event.date|date('F j, Y, g:i a')}}</p>
+                    <p class="card-text mb-1">City: {{event.city}}</p>
+                    <p class="card-text mb-1">Type: {{event.type}}</p>
+                    <hr>
+                    <a href="{{ path('app_details', {id: event.id}) }}" class="btn btn-primary btn-sm m-1">details</a>
+                    <a href="{{ path('app_edit', {id: event.id}) }}" class="btn btn-warning btn-sm m-1">edit</a>
+                    <a href="{{ path('app_delete', {id: event.id}) }}" class="btn btn-danger btn-sm m-1">delete</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
